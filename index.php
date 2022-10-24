@@ -3,60 +3,72 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sections</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Homework 4</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Sections</h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Prefix</th>
-      <th>Number</th>
-      <th>Section</th>
-      <th>Instructor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<?php
 $servername = "localhost";
-$username = "jescalan_homework3";
-$password = "Angelito54321&";
-$dbname = "jescalan_homework3";
+$username = "trileyou_rile0056";
+$password = "T833481t!";
+$dbname = "trileyou_database1";
+  
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password,$dbname);
+
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$cid = $_POST['id'];
-//echo $iid;
-$sql = "select section_id, section_number, i.instructor_name, c.prefix, c.number from section s join instructor i on i.instructor_id = s.instructor_id join course c on c.course_id = s.course_id where c.course_id=" . $cid;
-//echo $sql;
-    $result = $conn->query($sql);
+echo "Connected successfully";
+?>
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-?>
-  <tr>
-    <td><?=$row["section_id"]?></td>
-    <td><?=$row["prefix"]?></td>
-    <td><?=$row["number"]?></td>
-    <td><?=$row["section_number"]?></td>
-    <td><?=$row["instructor_name"]?></td>
-  </tr>
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php">Cities</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="basketball.php">Basketball</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="football.php">Football</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="baseball.php">Baseball</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="together.php">Together</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <?php
-  }
-} else {
-  echo "0 results";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  switch ($_POST['saveType']) {
+    case 'Add':
+        $sqlAdd = "insert into City (Abbreviation, fullname) value (?, ?)";
+        $stmtAdd = $conn->prepare($sqlAdd);
+        $stmtAdd->bind_param("ss", $_POST['icityabrv'], $_POST['icityname']);
+        $stmtAdd->execute();   
+      echo '<div class="alert alert-success" role="alert">New City added.</div>';
+      break;
+
+   }
 }
-$conn->close();
-?>
-  </tbody>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </body>
-</html>
+      
+      
+      ?>

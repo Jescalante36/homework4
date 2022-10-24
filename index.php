@@ -14,9 +14,9 @@
 
 <?php
 $servername = "localhost";
-$username = "trileyou_rile0056";
-$password = "T833481t!";
-$dbname = "trileyou_database1";
+$username = "jescalan_homework4";
+$password = "Angelito54321&";
+$dbname = "jescalan_homework4";
   
 
 // Create connection
@@ -32,20 +32,20 @@ echo "Connected successfully";
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">Cities</a>
+    <a class="navbar-brand" href="index.php">University of Oklahoma</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="basketball.php">Basketball</a>
+          <a class="nav-link active" aria-current="page" href="basketball.php">Classes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="football.php">Football</a>
+          <a class="nav-link" href="football.php">Classes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="baseball.php">Baseball</a>
+          <a class="nav-link" href="baseball.php">Section</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="together.php">Together</a>

@@ -9,14 +9,14 @@
   case 'Add':
         $sqlAdd = "insert into Football (football_name, football_club) value (?, ?)";
         $stmtAdd = $conn->prepare($sqlAdd);
-        $stmtAdd->bind_param("ss", $_POST['ifootball_name'], $_POST['ifootball_club']);
+        $stmtAdd->bind_param("ss", $_POST['ifootball_name'], $_POST['ifootballclub']);
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert"> Athlete added.</div>';
   break;
   case 'Edit':
-      $sqlEdit = "update Football set football_name=?, football_club=? where football_id=?";
+      $sqlEdit = "update Football set football_name=?, footballclub=? where football_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("ssi", $_POST['ifootball_name'], $_POST['ifootball_club'], $_POST['iid']);
+      $stmtEdit->bind_param("ssi", $_POST['ifootball_name'], $_POST['ifootballclub'], $_POST['iid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Athlete edited.</div>';
    break;
@@ -50,7 +50,7 @@
                   <label for="editathlete<?=$row["football_id"]?>Name" class="form-label">Athlete Name</label>
                           <input type="text" class="form-control" id="editfootball<?=$row["football_id"]?>Name" aria-describedby="editfootball<?=$row["football_id"]?>Help" name="ifootball_name">
                           <label for="editathlete<?=$row["football_id"]?>Name" class="form-label">Athlete's Club</label>
-                          <input type="text" class="form-control" id="editfootball<?=$row["football_id"]?>Name" aria-describedby="editathlete<?=$row["football_id"]?>Help" name="ifootball_club">
+                          <input type="text" class="form-control" id="editfootball<?=$row["football_id"]?>Name" aria-describedby="editathlete<?=$row["football_id"]?>Help" name="ifootballclub">
                           <div id="editathlete<?=$row["football_id"]?>Help" class="form-text">Enter the baseball player information.</div>
                         </div>
                 <input type="hidden" name="saveType" value="Add">
@@ -81,8 +81,8 @@ if ($result->num_rows > 0) {
     <tr>
         <td><?=$row["football_id"]?></td>
         <td><?=$row["football_name"]?></td>
-        <td><?=$row["football_club"]?></td>
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editfootball<?=$row["baseball_id"]?>">
+        <td><?=$row["footballclub"]?></td>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editfootball<?=$row["football_id"]?>">
                 Edit
               </button>
               <div class="modal fade" id="editfootball<?=$row["football_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editfootball<?=$row["football_id"]?>Label" aria-hidden="true">
@@ -98,7 +98,7 @@ if ($result->num_rows > 0) {
                           <label for="editfootball<?=$row["football_id"]?>Name" class="form-label">Athlete's Name</label>
                           <input type="text" class="form-control" id="editfootball<?=$row["football_id"]?>Name" aria-describedby="editfootball<?=$row["football_id"]?>Help" name="ifootball_name" value="<?=$row['football_name']?>">
                           <label for="editfootball<?=$row["football_id"]?>Name" class="form-label">Athlete's Club</label>
-                          <input type="text" class="form-control" id="editfootball<?=$row["football_id"]?>Name" aria-describedby="editfootball<?=$row["football_id"]?>Help" name="ifootball_club" value="<?=$row['football_club']?>">
+                          <input type="text" class="form-control" id="editfootball<?=$row["football_id"]?>Name" aria-describedby="editfootball<?=$row["football_id"]?>Help" name="ifootballclub" value="<?=$row['footballclub']?>">
                           <div id="editfootball<?=$row["football_id"]?>Help" class="form-text">Enter athlete's information.</div>
                         </div>
                         <input type="hidden" name="iid" value="<?=$row['football_id']?>">

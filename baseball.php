@@ -82,7 +82,33 @@ if ($result->num_rows > 0) {
         </div>
       </div>
     </div>
-
+<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editbaseball<?=$row["baseball_id"]?>">
+                Edit
+              </button>
+              <div class="modal fade" id="editbaseball<?=$row["baseball_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editbaseball<?=$row["baseball_id"]?>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="editbaseball<?=$row["baseball_id"]?>Label">Edit Athlete</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="">
+                        <div class="mb-3">
+                          <label for="editbaseball<?=$row["baseball_id"]?>Name" class="form-label">Athlete's name</label>
+                          <input type="text" class="form-control" id="editbaseball<?=$row["baseball_id"]?>Name" aria-describedby="editCar<?=$row["baseball_id"]?>Help" name="ibballname" value="<?=$row['baseball_name']?>">
+                          <label for="editbaseball<?=$row["baseball_id"]?>Name" class="form-label">Athlete's Club</label>
+                          <input type="text" class="form-control" id="editbaseball<?=$row["baseball_id"]?>Name" aria-describedby="editbaseball<?=$row["baseball_id"]?>Help" name="ibballclub" value="<?=$row['baseballclub']?>">
+                          <div id="editbaseball<?=$row["baseball_id"]?>Help" class="form-text">Enter athlete information.</div>
+                        </div>
+                        <input type="hidden" name="iid" value="<?=$row['baseball_id']?>">
+                        <input type="hidden" name="saveType" value="Edit">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
     
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

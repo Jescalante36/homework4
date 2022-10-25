@@ -26,12 +26,12 @@ if ($result->num_rows > 0) {
     </tr>
  
 <?php
-          if ($_SERVER["REQUEST_METHOD"] == "GET") {
-  switch ($_GET['saveType']) {
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  switch ($_POST['saveType']) {
     case 'Add':
         $sqlAdd = "insert into Baseball (baseball_name, baseballclub) value (?, ?)";
         $stmtAdd = $conn->prepare($sqlAdd);
-        $stmtAdd->bind_param("ss", $_GET['ibballname'], $_GET['ibballclub']);
+        $stmtAdd->bind_param("ss", $_POST['ibballname'], $_GET['ibballclub']);
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert">New athlete added.</div>';
       break;

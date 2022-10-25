@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
     case 'Add':
         $sqlAdd = "insert into Baseball (baseball_name, baseballclub) value (?, ?)";
         $stmtAdd = $conn->prepare($sqlAdd);
-        $stmtAdd->bind_param("ss", $_POST['ibballname'], $_GET['ibballclub']);
+        $stmtAdd->bind_param("ss", $_POST['ibballname'], $_POST['ibballclub']);
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert">New athlete added.</div>';
       break;

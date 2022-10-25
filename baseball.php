@@ -72,3 +72,4 @@ if ($result->num_rows > 0) {
         <td><?=$row["baseballclub"]?></td>
     </tr>
  </tbody>
+}

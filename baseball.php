@@ -32,6 +32,15 @@ if ($result->num_rows > 0) {
 }
    
   ?> 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  switch ($_POST['saveType']) {
+    case 'Add':
+        $sqlAdd = "insert into Baseball (baseball_name, baseballclub) value (?, ?)";
+        $stmtAdd = $conn->prepare($sqlAdd);
+        $stmtAdd->bind_param("ss", $_POST['ibballname'], $_POST['ibballclub']);
+        $stmtAdd->execute();   
+      echo '<div class="alert alert-success" role="alert">New athlete added.</div>';
+      break;
    </tbody>
 </table>
 

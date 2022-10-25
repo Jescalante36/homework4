@@ -11,15 +11,21 @@
         $stmtAdd = $conn->prepare($sqlAdd);
         $stmtAdd->bind_param("ss", $_POST['ibaseball_name'], $_POST['ibaseballclub']);
         $stmtAdd->execute();   
-      echo '<div class="alert alert-success" role="alert">New athlete added.</div>';
+      echo '<div class="alert alert-success" role="alert"> Athlete added.</div>';
   break;
   case 'Edit':
       $sqlEdit = "update Baseball set baseball_name=?, baseballclub=? where baseball_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
       $stmtEdit->bind_param("ssi", $_POST['ibaseball_name'], $_POST['ibaseballclub'], $_POST['iid']);
       $stmtEdit->execute();
-      echo '<div class="alert alert-success" role="alert">Car edited.</div>';
+      echo '<div class="alert alert-success" role="alert">Athlete edited.</div>';
    break;
+   case 'Delete':
+        $sqlDelete = "Delete From Baseball where baseball_id=?";
+        $stmtDelete = $conn->prepare($sqlDelete);
+        $stmtDelete->bind_param("i", $_POST['cid']);
+        $stmtDelete->execute();
+   echo '<div class="alert alert-success" role="alert">Athlete deleted.</div>';
   }
 } else {
   echo "";
@@ -106,7 +112,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="cid" value="<?=$row["CarID"]?>" />
+                <input type="hidden" name="cid" value="<?=$row["baseball_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <button type="submit" class="btn" onclick="return confirm('Are you sure?')"> Delete </button>
               </form>

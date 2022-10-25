@@ -1,5 +1,5 @@
 <?php require_once("header.php"); ?>
-<table class="table table-dark table-striped">
+<table class="w3-red">
   <thead>
     <tr>
       <th scope="col">Player ID</th>

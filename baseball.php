@@ -1,5 +1,8 @@
-<?php require_once("header.php"); ?>
-<table class="table table-dark table-striped">
+<!doctype html>
+<html lang="en">
+<head> <?php require_once("header.php"); ?>
+    </head>
+     <body>
 <?php
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
@@ -15,10 +18,7 @@
   echo "0 results";
     }
   ?> 
-
-
-</table>
-
+<table class="table table-dark table-striped">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addbaseball">
         Add New
       </button>
@@ -49,15 +49,14 @@
       </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
- <thead>
+  <thead>
     <tr>
       <th scope="col">Player ID</th>
       <th scope="col">Athlete</th>
       <th scope="col">Club</th>
     </tr>
   </thead>
-  <tbody>
+    <tbody>
     <?php
 $sql = "SELECT * FROM Baseball";
 $result = $conn->query($sql);       
@@ -72,24 +71,6 @@ if ($result->num_rows > 0) {
         <td><?=$row["baseballclub"]?></td>
     </tr>
  </tbody>
-}
-}}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
+</table>
+ </body>
+</html>

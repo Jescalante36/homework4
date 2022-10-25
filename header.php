@@ -60,9 +60,9 @@ echo "Connected successfully";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
-        $sqlAdd = "insert into City (Abbreviation, fullname) value (?, ?)";
+        $sqlAdd = "insert into Baseball (baseball_name, baseballclub) value (?, ?)";
         $stmtAdd = $conn->prepare($sqlAdd);
-        $stmtAdd->bind_param("ss", $_POST['icityabrv'], $_POST['icityname']);
+        $stmtAdd->bind_param("ss", $_POST['bballname'], $_POST['bballclub']);
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert">New City added.</div>';
       break;

@@ -48,7 +48,7 @@ echo "Connected successfully";
           <a class="nav-link" href="football.php">Football</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="baseball.php">Together</a>
+          <a class="nav-link" href="baseball.php">Baseball</a>
         </li>
       </ul>
     </div>

@@ -42,10 +42,10 @@ echo "Connected successfully";
           <a class="nav-link active" aria-current="page" href="soccer.php">Soccer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="football.php">Basketball</a>
+          <a class="nav-link" href="basketball.php">Basketball</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="baseball.php">Football</a>
+          <a class="nav-link" href="football.php">Football</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="together.php">Together</a>

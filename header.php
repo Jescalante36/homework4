@@ -16,7 +16,7 @@
 $servername = "localhost";
 $username = "jescalan_homework3";
 $password = "Angelito54321&";
-$dbname = "jescalan_homework4";
+$dbname = "jescalan_homework3";
   
 
 // Create connection

@@ -69,6 +69,50 @@ if ($result->num_rows > 0) {
         <td><?=$row["baseball_id"]?></td>
         <td><?=$row["baseball_name"]?></td>
         <td><?=$row["baseballclub"]?></td>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editCar<?=$row["CarID"]?>">
+                Edit
+              </button>
+              <div class="modal fade" id="editCar<?=$row["CarID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editCar<?=$row["CarID"]?>Label" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="editCar<?=$row["CarID"]?>Label">Edit Car</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="">
+                        <div class="mb-3">
+                          <label for="editCar<?=$row["CarID"]?>Name" class="form-label">Color</label>
+                          <input type="text" class="form-control" id="editCar<?=$row["CarID"]?>Name" aria-describedby="editCar<?=$row["CarID"]?>Help" name="cColor" value="<?=$row['Color']?>">
+                          <label for="editCar<?=$row["CarID"]?>Name" class="form-label">Make</label>
+                          <input type="text" class="form-control" id="editCar<?=$row["CarID"]?>Name" aria-describedby="editCar<?=$row["CarID"]?>Help" name="cMake" value="<?=$row['Make']?>">
+                          <label for="editCar<?=$row["CarID"]?>Name" class="form-label">Year</label>
+                          <input type="text" class="form-control" id="editCar<?=$row["CarID"]?>Name" aria-describedby="editCar<?=$row["CarID"]?>Help" name="cYear" value="<?=$row['Year']?>">
+                          <div id="editCar<?=$row["CarID"]?>Help" class="form-text">Enter the Car Information.</div>
+                        </div>
+                        <input type="hidden" name="cid" value="<?=$row['CarID']?>">
+                        <input type="hidden" name="saveType" value="Edit">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <form method="post" action="">
+                <input type="hidden" name="cid" value="<?=$row["CarID"]?>" />
+                <input type="hidden" name="saveType" value="Delete">
+                <button type="submit" class="btn" onclick="return confirm('Are you sure?')"> Delete </button>
+              </form>
+            </td>
+         <?php
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
     </tr>
  </tbody>
 </table>

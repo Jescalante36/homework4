@@ -22,7 +22,7 @@
    break;
   }
 } else {
-  echo "0 results";
+  echo "";
     }
   ?> 
 <table class="table table-dark table-striped">

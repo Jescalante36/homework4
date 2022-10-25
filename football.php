@@ -1,4 +1,7 @@
 <?php require_once("header.php"); ?>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
+        Add New
+      </button>
  <!-- Modal -->
       <div class="modal fade" id="addInstructor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addInstructorLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -1,30 +1,5 @@
 <?php require_once("header.php"); ?>
 <table class="table table-dark table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Player ID</th>
-      <th scope="col">Athlete</th>
-      <th scope="col">Club</th>
-    </tr>
-  </thead>
-  <tbody>
-<?php
-
-$sql = "SELECT baseball_id, baseball_name,baseballclub from Baseball";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
- 
-    ?>
-    <tr>
-     
-   <td><?=$row["baseball_id"]?></td>
-    <td><?=$row["baseball_name"]?></td>
-    <td><?=$row["baseballclub"]?></td>
-    </tr>
- 
 <?php
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
@@ -43,7 +18,7 @@ if ($result->num_rows > 0) {
 }
   ?> 
 
-   </tbody>
+
 </table>
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addbaseball">
@@ -75,7 +50,27 @@ if ($result->num_rows > 0) {
         </div>
       </div>
     </div>
-    
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
+ <thead>
+    <tr>
+      <th scope="col">Player ID</th>
+      <th scope="col">Athlete</th>
+      <th scope="col">Club</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+$sql = "SELECT * FROM Baseball";
+$result = $conn->query($sql);       
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {   
+?>
+    
+    <tr>
+        <td><?=$row["baseball_id"]?></td>
+        <td><?=$row["baseball_name"]?></td>
+        <td><?=$row["baseballclub"]?></td>
+    </tr>
+ </tbody>

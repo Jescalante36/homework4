@@ -9,7 +9,7 @@
   case 'Add':
         $sqlAdd = "insert into Football (football_name, football_club) value (?, ?)";
         $stmtAdd = $conn->prepare($sqlAdd);
-        $stmtAdd->bind_param("ss", $_POST['ifootball_name'], $_POST['ifootballclub']);
+        $stmtAdd->bind_param("ss", $_POST['sfootball_name'], $_POST['sfootballclub']);
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert"> Athlete added.</div>';
   break;

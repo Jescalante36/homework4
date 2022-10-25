@@ -6,13 +6,20 @@
 <?php
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
-    case 'Add':
+  case 'Add':
         $sqlAdd = "insert into Baseball (baseball_name, baseballclub) value (?, ?)";
         $stmtAdd = $conn->prepare($sqlAdd);
-        $stmtAdd->bind_param("ss", $_POST['ibballname'], $_POST['ibballclub']);
+        $stmtAdd->bind_param("ss", $_POST['ibaseball_name'], $_POST['ibaseballclub']);
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert">New athlete added.</div>';
-      break;
+  break;
+  case 'Edit':
+      $sqlEdit = "update Baseball set baseball_name=?, baseballclub=? where baseball_id=?";
+      $stmtEdit = $conn->prepare($sqlEdit);
+      $stmtEdit->bind_param("ssi", $_POST['ibaseball_name'], $_POST['ibaseballclub'], $_POST['iid']);
+      $stmtEdit->execute();
+      echo '<div class="alert alert-success" role="alert">Car edited.</div>';
+   break;
   }
 } else {
   echo "0 results";
@@ -35,9 +42,9 @@
               <form method="post" action="">
                 <div class="mb-3">
                   <label for="editathlete<?=$row["baseball_id"]?>Name" class="form-label">Athlete Name</label>
-                          <input type="text" class="form-control" id="editcity<?=$row["baseball_id"]?>Name" aria-describedby="editcity<?=$row["baseball_id"]?>Help" name="ibballname">
+                          <input type="text" class="form-control" id="editcity<?=$row["baseball_id"]?>Name" aria-describedby="editcity<?=$row["baseball_id"]?>Help" name="ibaseball_name">
                           <label for="editcity<?=$row["baseball_id"]?>Name" class="form-label">Athlete's Club</label>
-                          <input type="text" class="form-control" id="editcity<?=$row["baseball_id"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="ibballclub">
+                          <input type="text" class="form-control" id="editcity<?=$row["baseball_id"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="ibaseballclub">
                           <div id="editcity<?=$row["baseball_id"]?>Help" class="form-text">Enter the baseball player information.</div>
                         </div>
                 <input type="hidden" name="saveType" value="Add">
@@ -69,28 +76,26 @@ if ($result->num_rows > 0) {
         <td><?=$row["baseball_id"]?></td>
         <td><?=$row["baseball_name"]?></td>
         <td><?=$row["baseballclub"]?></td>
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editCar<?=$row["CarID"]?>">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editbaseball<?=$row["CarID"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editCar<?=$row["CarID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editCar<?=$row["CarID"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editbaseball<?=$row["CarID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editbaseball<?=$row["baseball_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editCar<?=$row["CarID"]?>Label">Edit Car</h1>
+                      <h1 class="modal-title fs-5" id="editbaseball<?=$row["baseball_id"]?>Label">Edit Baseball player</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editCar<?=$row["CarID"]?>Name" class="form-label">Color</label>
-                          <input type="text" class="form-control" id="editCar<?=$row["CarID"]?>Name" aria-describedby="editCar<?=$row["CarID"]?>Help" name="cColor" value="<?=$row['Color']?>">
-                          <label for="editCar<?=$row["CarID"]?>Name" class="form-label">Make</label>
-                          <input type="text" class="form-control" id="editCar<?=$row["CarID"]?>Name" aria-describedby="editCar<?=$row["CarID"]?>Help" name="cMake" value="<?=$row['Make']?>">
-                          <label for="editCar<?=$row["CarID"]?>Name" class="form-label">Year</label>
-                          <input type="text" class="form-control" id="editCar<?=$row["CarID"]?>Name" aria-describedby="editCar<?=$row["CarID"]?>Help" name="cYear" value="<?=$row['Year']?>">
-                          <div id="editCar<?=$row["CarID"]?>Help" class="form-text">Enter the Car Information.</div>
+                          <label for="editbaseball<?=$row["baseball_id"]?>Name" class="form-label">Athlete's Name</label>
+                          <input type="text" class="form-control" id="editbaseball<?=$row["baseball_id"]?>Name" aria-describedby="editbaseball<?=$row["baseball_id"]?>Help" name="ibaseball_name" value="<?=$row['baseball_name']?>">
+                          <label for="editbaseball<?=$row["baseball_id"]?>Name" class="form-label">Athlete's Club</label>
+                          <input type="text" class="form-control" id="editbaseball<?=$row["baseball_id"]?>Name" aria-describedby="editbaseball<?=$row["baseball_id"]?>Help" name="ibaseballclub" value="<?=$row['baseballclub']?>">
+                          <div id="editbaseball<?=$row["baseball_id"]?>Help" class="form-text">Enter athlete's information.</div>
                         </div>
-                        <input type="hidden" name="cid" value="<?=$row['CarID']?>">
+                        <input type="hidden" name="iid" value="<?=$row['baseball_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>

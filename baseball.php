@@ -26,13 +26,7 @@ if ($result->num_rows > 0) {
     </tr>
  
 <?php
-  }
-} else {
-  echo "0 results";
-}
-   
-  ?> 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
         $sqlAdd = "insert into Baseball (baseball_name, baseballclub) value (?, ?)";
@@ -41,6 +35,13 @@ if ($result->num_rows > 0) {
         $stmtAdd->execute();   
       echo '<div class="alert alert-success" role="alert">New athlete added.</div>';
       break;
+  }
+} else {
+  echo "0 results";
+}
+   
+  ?> 
+
    </tbody>
 </table>
 

@@ -61,11 +61,11 @@ if ($result->num_rows > 0) {
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="editcity<?=$row["city_ID"]?>Name" class="form-label">Athlete Name</label>
-                          <input type="text" class="form-control" id="editcity<?=$row["city_ID"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="icityabrv">
-                          <label for="editcity<?=$row["city_ID"]?>Name" class="form-label">Athlete's Club</label>
-                          <input type="text" class="form-control" id="editcity<?=$row["city_ID"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="icityname">
-                          <div id="editcity<?=$row["city_ID"]?>Help" class="form-text">Enter the cities info.</div>
+                  <label for="editathlete<?=$row["baseball_id"]?>Name" class="form-label">Athlete Name</label>
+                          <input type="text" class="form-control" id="editcity<?=$row["baseball_id"]?>Name" aria-describedby="editcity<?=$row["baseball_id"]?>Help" name="ibballname">
+                          <label for="editcity<?=$row["baseball_id"]?>Name" class="form-label">Athlete's Club</label>
+                          <input type="text" class="form-control" id="editcity<?=$row["baseball_id"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="ibballclub">
+                          <div id="editcity<?=$row["baseball_id"]?>Help" class="form-text">Enter the baseball player information.</div>
                         </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>

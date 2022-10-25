@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
         <td><?=$row["baseball_id"]?></td>
         <td><?=$row["baseball_name"]?></td>
         <td><?=$row["baseballclub"]?></td>
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editbaseball<?=$row["CarID"]?>">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editbaseball<?=$row["baseball_id"]?>">
                 Edit
               </button>
               <div class="modal fade" id="editbaseball<?=$row["CarID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editbaseball<?=$row["baseball_id"]?>Label" aria-hidden="true">

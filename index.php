@@ -66,15 +66,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addcityLabel">Add City</h1>
+              <h1 class="modal-title fs-5" id="addcityLabel">Add Athlete</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="editcity<?=$row["city_ID"]?>Name" class="form-label">City Abbreviation</label>
+                  <label for="editcity<?=$row["city_ID"]?>Name" class="form-label">Athlete Name</label>
                           <input type="text" class="form-control" id="editcity<?=$row["city_ID"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="icityabrv">
-                          <label for="editcity<?=$row["city_ID"]?>Name" class="form-label">City Full Name</label>
+                          <label for="editcity<?=$row["city_ID"]?>Name" class="form-label">Country</label>
                           <input type="text" class="form-control" id="editcity<?=$row["city_ID"]?>Name" aria-describedby="editcity<?=$row["city_ID"]?>Help" name="icityname">
                           <div id="editcity<?=$row["city_ID"]?>Help" class="form-text">Enter the cities info.</div>
                         </div>

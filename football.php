@@ -1,7 +1,7 @@
 <?php require_once("header.php"); ?>
-<table>
+<table class="table table-blue table-striped">
   <thead>
-    <tr class="w3-red">
+    <tr>
       <th scope="col">Player ID</th>
       <th scope="col">Athlete</th>
       <th scope="col">Club</th>

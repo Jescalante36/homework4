@@ -1,4 +1,40 @@
 <?php require_once("header.php"); ?>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Player ID</th>
+      <th scope="col">Athlete</th>
+      <th scope="col">Club</th>
+    </tr>
+  </thead>
+  <tbody>
+<?php
+
+$sql = "SELECT basket_id, basketball_name,basketballclub from Basketball";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+ 
+    ?>
+    <tr>
+     
+   <td><?=$row["basket_id"]?></td>
+    <td><?=$row["basketball_name"]?></td>
+    <td><?=$row["basketballclub"]?></td>
+    </tr>
+ 
+<?php
+  }
+} else {
+  echo "0 results";
+}
+   
+  ?> 
+   </tbody>
+</table>
+
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
         Add New
       </button>

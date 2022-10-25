@@ -1,9 +1,4 @@
 <?php require_once("header.php"); ?>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
-        Add New
-      </button>
-
-
 <table class="table table-dark table-striped">
   <thead>
     <tr>
@@ -40,9 +35,9 @@ if ($result->num_rows > 0) {
    </tbody>
 </table>
 
-
-
-
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
+        Add New
+      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="addInstructor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addInstructorLabel" aria-hidden="true">

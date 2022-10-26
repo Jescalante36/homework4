@@ -51,7 +51,7 @@
                           <input type="text" class="form-control" id="editbasketball<?=$row["basket_id"]?>Name" aria-describedby="editbasketball<?=$row["basket_id"]?>Help" name="ibasketball_name">
                           <label for="editathlete<?=$row["basket_id"]?>Name" class="form-label">Athlete's Club</label>
                           <input type="text" class="form-control" id="editbasketball<?=$row["basket_id"]?>Name" aria-describedby="editathlete<?=$row["basket_id"]?>Help" name="ibasketballclub">
-                          <div id="editathlete<?=$row["basket_id"]?>Help" class="form-text">Enter the baseball player information.</div>
+                          <div id="editathlete<?=$row["basket_id"]?>Help" class="form-text">Enter the basketball player information.</div>
                         </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>

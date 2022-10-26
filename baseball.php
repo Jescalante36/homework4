@@ -82,6 +82,7 @@ if ($result->num_rows > 0) {
         <td><?=$row["baseball_id"]?></td>
         <td><?=$row["baseball_name"]?></td>
         <td><?=$row["baseballclub"]?></td>
+        <td>
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editbaseball<?=$row["baseball_id"]?>">
                 Edit
               </button>

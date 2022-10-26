@@ -114,7 +114,7 @@ if ($result->num_rows > 0) {
               <form method="post" action="">
                 <input type="hidden" name="cid" value="<?=$row["basket_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
-                <button type="submit" class="btn" onclick="return confirm('Are you sure?')"> Delete </button>
+                <button type="submit" class="btn btn-light" onclick="return confirm('Are you sure?')"> Delete </button>
               </form>
             </td>
          <?php

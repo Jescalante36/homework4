@@ -86,7 +86,7 @@ if ($result->num_rows > 0) {
         <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#editbaseball<?=$row["baseball_id"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editbaseball<?=$row["CarID"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editbaseball<?=$row["baseball_id"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editbaseball<?=$row["baseball_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editbaseball<?=$row["baseball_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">

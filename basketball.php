@@ -82,10 +82,10 @@ if ($result->num_rows > 0) {
         <td><?=$row["basket_id"]?></td>
         <td><?=$row["basketball_name"]?></td>
         <td><?=$row["basketballclub"]?></td>
+         <td>
         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editbasketball<?=$row["basket_id"]?>">
                 Edit
               </button>
-        <td>
               <div class="modal fade" id="editbasketball<?=$row["basket_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editfootball<?=$row["football_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
